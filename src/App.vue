@@ -25,10 +25,13 @@ export default {
   },
   methods: {
     search: function (keyword) {
+      console.log(keyword)
       var vm = this
       this.$http.get('http://localhost:3000/search?keyword=' + keyword).then(function (res) {
-        vm.list = JSON.parse(res.body).items
-        console.log(vm.list)
+        console.log(res.body)
+        // vm.list = JSON.parse(res.body).items
+        // console.log(vm.list)
+        vm.list = res.body.items
       })
     },
     select: function (id) {
